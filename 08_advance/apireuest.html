@@ -1,0 +1,78 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ </head>
+ <style>
+#image img {
+  width: 200px;
+  height: 300px;
+  object-fit: fill;
+}
+</style>
+ <body>
+    <div class = 'info'> 0	UNSENT	Client has been created. open() not called yet.
+1	OPENED	open() has been called.
+2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+3	LOADING	Downloading; responseText holds partial data.
+4	DONE	The operation is complete.
+these are the states</div>
+<div id="id">
+    <div id="image">
+        
+    </div>
+    <h2 class="name"></h2>
+    <h2 class="followers"></h2>
+</div>
+   
+
+ 
+ </body>
+ <script>
+    //ajax request
+    //through this method we send and recieve data
+    // this is class so we need it to convert it into object
+    const xhr = new XMLHttpRequest();
+    const requestUrl= 'https://api.github.com/users/hiteshchoudhary'
+
+    xhr.open('GET',requestUrl) 
+    // .open sends the request
+    //two parameter: 1)method 2)string of url
+
+    // now we need to call open 
+    //console.log(xhr.readyState) // this gives the state but it doesn't track continously
+    // on ready state change function works when the state is change
+    xhr.onreadystatechange=function(){
+
+        console.log(xhr.readyState);
+        if(xhr.readyState === 4 ){
+            const data = JSON.parse(this.responseText) //the data type is string so we need to convert it into object(JSON) to get the value
+            // for current context we use this 
+            // responseText gives us all the data
+
+            console.log(data);
+            const follow= data.followers
+            const img=data.avatar_url 
+            const name= data.name
+            const idIMg= document.querySelector('#image');
+            idIMg.innerHTML=`<img src="${img}" >`
+            const newH2name= document.createElement('h2')
+            newH2name.textContent=name
+            document.querySelector('.name').replaceWith(newH2name)
+            const newh2followers= document.createElement('h2')
+            newh2followers.textContent= follow
+            document.querySelector('.followers').replaceWith(newh2followers)
+
+
+
+        }
+    }
+    //const data =JSON.parse(this.responseText)
+     
+    xhr.send() // now open is called
+ </script>
+ </html>
+
+ // Assignment make a id card using the api of hitesh

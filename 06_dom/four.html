@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=|, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul class="language">
+        <li>javascript</li>
+    </ul>
+</body>
+
+    
+<script>
+    //basic way to insert list element
+    //this method is not efficient because every time we need to traverse
+    // to the last element this will be problem for big data
+    function addLaunguage(langName){
+        const li = document.createElement('li');
+        li.innerHTML=`${langName}`
+        document.querySelector('.language').appendChild(li)
+    }
+    addLaunguage("python")
+    addLaunguage("javascript")
+    //optimize way
+    function addoptimizeWay(langName){
+        const li = document.createElement('li');
+        li.appendChild(document.createTextNode(langName))
+        document.querySelector('.language').appendChild(li)
+
+    }
+    addoptimizeWay('go lang')
+
+    //EDIT
+    const secondLang= document.querySelector("li:nth-child(2)")
+    //not optimize way
+    //secondLang.innerHTML="mojo"
+    
+    const newLi = document.createElement('li')
+    newLi.textContent= "Mojo" //we can also use innerHTML here instead of textContent
+    secondLang.replaceWith(newLi)
+
+    //edit second way
+    const FirstLang= document.querySelector("li:first-child")
+    FirstLang.outerHTML='<li>typescript</li>'
+    
+    
+    //remove
+    const lastLang=document.querySelector('li:last-child')
+    lastLang.remove()
+</script>
+</html>

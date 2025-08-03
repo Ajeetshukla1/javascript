@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>chai aur code</h1>
+    <button id="stop"> Stop </button>
+</body>
+<script>
+    // set time out: after a given time it executes the given task once after running 
+    // set interval:
+    setTimeout(() => {
+        console.log("Ajeet")
+    }, 2000);
+    const changeText= function(){
+        document.querySelector('h1').innerHTML= "best js series"
+    }
+    
+    const changeMe = setTimeout(changeText, 2000) // this will change the h1 tag content after 2 second
+    // now how to to stop setTimeout
+    // we use clearTimeout
+    // for that we require the reference of the setTimeout which we want to stop
+    
+
+    // let's use clearTimeout on event
+
+    document.querySelector('#stop').addEventListener('click',function(){
+        clearTimeout(changeMe)
+        console.log("stop")
+        // now when we click on stop button before changes it will stop the change which was going to happen
+    })
+</script>
+</html>

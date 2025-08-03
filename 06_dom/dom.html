@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom</title>
+</head>
+<body style="background-color: black;color: white;">
+    <div class ="parent">
+        <div class="day">Monday</div>
+        <div class="day">tuesday</div>
+        <div class="day">wednesday</div>
+        <div class="day">thursday</div>
+    </div>
+    
+</body>
+<script>
+    const parent =document.querySelector('.parent')
+    console.log(parent);
+    console.log(parent.children);
+    //children property gives you the html collection which is similar to array property
+    console.log(parent.children[1].innerHTML)
+    //NOTE:
+    //Every element has children
+    //DOM is like a tree which have nodes and children
+
+    for (let i = 0; i < parent.children.length; i++) {
+        console.log(parent.children[i].innerHTML);
+        
+    }
+    parent.children[1].style.color="orange"
+    console.log(parent.firstElementChild);
+    //gives the first element
+    console.log(parent.lastElementChild);
+    //gives the last element
+
+    const dayOne=document.querySelector('.day')
+    //as we move from parent to child we can move from children to parent
+    console.log(dayOne);
+    console.log(dayOne.parentElement);
+    //here it traverse from child to parent as we traverse in tree
+    console.log(dayOne.nextSibling);
+    //traverses to it's sibling element
+    console.log("NODES: ", parent.childNodes);
+    //gives the number of nodes of the parent
+    //here we get 9 because every enter(only the first enter is counted one after another enter is count as 1) is count as text element
+    
+</script>
+</html>

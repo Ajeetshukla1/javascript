@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="orange">orange</button>
+    <button id="green">green</button>
+</body>
+<script>
+
+//     function init() {
+//   let name = "Mozilla"; // name is a local variable created by init
+//   function displayName() {
+//     // displayName() is the inner function, that forms a closure
+//     console.log(name); // use variable declared in the parent function
+//   }
+//   displayName();
+// }
+// init();
+    // function outer(){
+    //     let username = "ajeet"
+    //     // console.log("outer",secret);// this will give error
+        
+    //     function inner(){
+    //         let secret = "my123"
+    //         console.log("inner",username);
+    //     }
+    //     function innerTwo(){
+    //         console.log("inner two",username);
+    //         console.log(secret); // inner function don't have access to other inner funciton variable
+            
+    //     }
+    //     inner()
+    //     innertwo()
+    // }
+    // outer()
+    // console.log("too outer", username); // this will give error
+    // if there is function inside function the inner function can access the variable of outer function 
+    // this is called lexical scoping
+    // but inner functions can't access the variable among them 
+    // function makeFunc() {
+    //     const name = "Mozilla";
+    //     function displayName() {
+    //     console.log(name);
+    // }
+    // return displayName; // when we return display name then not only display name will be return but also the scope of outer function will also return
+    // why it is important
+    // when we return the function vanishes in this case the outer function gets vasnish but it doesn't happen the whole outer function gets return and 
+    // the variables of outer function can be accessed by inner function
+//}
+
+// const myFunc = makeFunc();
+// myFunc();
+
+    
+      
+</script>
+<script>
+    // document.querySelector('#orange').addEventListener('click',function(){
+    //     document.body.style.backgroundColor= `orange`
+    // })
+    // document.querySelector('#green').addEventListener('click',function(){
+    //     document.body.style.backgroundColor= `green`
+    // })
+    function click_handler(color){
+        // document.body.style.backgroundColor= `${color}` // this will not work because we have executed the function 
+
+        return function(){
+            document.body.style.backgroundColor= `${color}`
+            //due to closure property we have the access of whole outer function
+
+
+        }
+
+    }
+    document.getElementById('orange').onclick = click_handler("orange")
+    document.getElementById('green').onclick = click_handler("green")
+
+
+</script>
+</html>

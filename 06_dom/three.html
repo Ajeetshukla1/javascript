@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    const div=document.createElement('div')
+    console.log(div);
+    div.className="main"
+    div.id=Math.round(Math.random() * 10+1)
+    // here we have generate random id
+    div.setAttribute("title","generated title")
+    // set attribute as key value pair 
+    //here "title" is key and "generated title" is value
+    div.style.backgroundColor="green"
+    div.style.padding="12px"
+    
+    // div.innerText="Chai aur code" we usually don't use this method because it overright the value that it selects
+    const addText=document.createTextNode("chai aur code")
+    //we usually use this method to add text in webpage
+    div.appendChild(addText)
+    //till now this will not be display one webpage. To display we need to attach it on web page
+
+    document.body.appendChild(div)
+    //by doing this div will be visible in the web page
+</script>
+</html>

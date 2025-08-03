@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>button clicked</button>
+</body>
+<script>
+    class React{
+        constructor(){
+            this.library ="react"
+            this.server= "https://localhost:300"
+
+            //requirement
+            // document
+            // .querySelector('button')
+            // .addEventListener('click', this.handleClick)
+            //if we do not use bind then it will not show value of library and server variable 
+            document
+            .querySelector('button')
+            .addEventListener('click', this.handleClick.
+                bind(this) // this will bind the all data to send to function
+            )
+
+        }
+        handleClick(){
+            console.log("button clicked");
+            console.log(this.server);
+            //this wil show undefined if we will not use bind 
+            
+            
+        }
+
+    }
+    const app = new React()
+</script>
+</html>
